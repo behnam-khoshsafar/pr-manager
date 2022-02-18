@@ -5,12 +5,15 @@ import org.springframework.http.HttpStatus.UNAUTHORIZED
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
 import org.springframework.security.web.authentication.HttpStatusEntryPoint
+import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository
+
 
 @Configuration
 class WebSecurityConfig : WebSecurityConfigurerAdapter() {
 
     override fun configure(http: HttpSecurity) {
+        val handler = SimpleUrlAuthenticationFailureHandler("/")
         http
             .authorizeRequests {
                 it
@@ -26,6 +29,11 @@ class WebSecurityConfig : WebSecurityConfigurerAdapter() {
             .logout {
                 it.logoutSuccessUrl("/").permitAll()
             }
-            .oauth2Login()
+            .oauth2Login {
+                it.failureHandler { request, response, exception ->
+                    request.session.setAttribute("error.message", exception.message)
+                    handler.onAuthenticationFailure(request, response, exception)
+                }
+            }
     }
 }

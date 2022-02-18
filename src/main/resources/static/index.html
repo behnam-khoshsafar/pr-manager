@@ -13,6 +13,7 @@
     <div>
         <button onClick="logout()" class="btn btn-primary">Logout</button>
     </div>
+    <div class="container text-danger error"></div>
 </div>
 <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="js/js.cookie.min.js"></script>
@@ -42,6 +43,13 @@
                         Cookies.get('XSRF-TOKEN'));
                 }
             }
+        }
+    });
+    $.get("/error", function(data) {
+        if (data) {
+            $(".error").html(data);
+        } else {
+            $(".error").html('');
         }
     });
 </script>
