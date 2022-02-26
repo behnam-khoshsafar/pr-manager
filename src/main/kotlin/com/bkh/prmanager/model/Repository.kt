@@ -1,6 +1,6 @@
-package com.bkh.prmanager.resourse.dto
+package com.bkh.prmanager.model
 
-data class RepositoryDto(
+data class Repository(
     val id: Int,
     val repoName: String,
     val ownerName: String

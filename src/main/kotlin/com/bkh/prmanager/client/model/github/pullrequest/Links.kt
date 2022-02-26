@@ -1,4 +1,4 @@
-package com.bkh.prmanager.model.pullrequest
+package com.bkh.prmanager.client.model.github.pullrequest
 
 
 import com.fasterxml.jackson.annotation.JsonProperty

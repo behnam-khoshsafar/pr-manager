@@ -1,10 +1,10 @@
-package com.bkh.prmanager.model.pullrequest
+package com.bkh.prmanager.client.model.github.pullrequest
 
 
-import com.bkh.prmanager.model.User
+import com.bkh.prmanager.client.model.github.User
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class PullRequest(
+data class GithubPullRequest(
     @JsonProperty("active_lock_reason")
     val activeLockReason: String?,
     @JsonProperty("assignee")

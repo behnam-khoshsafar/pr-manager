@@ -1,6 +1,6 @@
-package com.bkh.prmanager.resourse.dto
+package com.bkh.prmanager.model
 
-data class PullRequestDto(
+data class PullRequest(
     val id: Int,
     val title: String,
     val owner: String,

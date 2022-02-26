@@ -2,7 +2,7 @@ package com.bkh.prmanager.resourse.handler
 
 import com.bkh.prmanager.exception.AuthenticationFailedException
 import com.bkh.prmanager.exception.GithubClientException
-import com.bkh.prmanager.resourse.dto.ErrorResponse
+import com.bkh.prmanager.model.ErrorResponse
 import org.springframework.http.HttpStatus.UNAUTHORIZED
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.ControllerAdvice

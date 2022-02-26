@@ -21,7 +21,7 @@ class GithubClientInterceptor(val oauth2AuthorizedClientService: OAuth2Authorize
         val builder = request.newBuilder()
             .addHeader("Authorization", "token $accessToken")
             .addHeader("Accept", "application/vnd.github.v3+json")
-        return chain.proceed(builder.build());
+        return chain.proceed(builder.build())
     }
 
     private fun oAuth2AccessToken(): String {

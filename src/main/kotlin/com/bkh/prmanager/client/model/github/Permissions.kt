@@ -1,4 +1,4 @@
-package com.bkh.prmanager.model
+package com.bkh.prmanager.client.model.github
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties

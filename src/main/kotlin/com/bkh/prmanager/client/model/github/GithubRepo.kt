@@ -1,11 +1,11 @@
-package com.bkh.prmanager.model
+package com.bkh.prmanager.client.model.github
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-data class Repo(
+data class GithubRepo(
     @JsonProperty("allow_auto_merge")
     val allowAutoMerge: Boolean?,
     @JsonProperty("allow_merge_commit")
@@ -163,7 +163,7 @@ data class Repo(
     @JsonProperty("temp_clone_token")
     val tempCloneToken: String?,
     @JsonProperty("template_repository")
-    val templateRepository: Repo?,
+    val templateRepository: GithubRepo?,
     @JsonProperty("topics")
     val topics: List<String>?,
     @JsonProperty("trees_url")

@@ -1,17 +1,17 @@
-package com.bkh.prmanager.model.pullrequest
+package com.bkh.prmanager.client.model.github.pullrequest
 
 
-import com.bkh.prmanager.model.Repo
-import com.bkh.prmanager.model.User
+import com.bkh.prmanager.client.model.github.GithubRepo
+import com.bkh.prmanager.client.model.github.User
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class BaseRepository(
+data class HeadRepository(
     @JsonProperty("label")
     val label: String,
     @JsonProperty("ref")
     val ref: String,
     @JsonProperty("repo")
-    val repo: Repo,
+    val repo: GithubRepo,
     @JsonProperty("sha")
     val sha: String,
     @JsonProperty("user")
