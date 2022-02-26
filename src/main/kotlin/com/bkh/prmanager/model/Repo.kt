@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-data class GithubRepository(
+data class Repo(
     @JsonProperty("allow_auto_merge")
     val allowAutoMerge: Boolean?,
     @JsonProperty("allow_merge_commit")
@@ -127,7 +127,7 @@ data class GithubRepository(
     @JsonProperty("open_issues_count")
     val openIssuesCount: Int,
     @JsonProperty("owner")
-    val owner: Owner,
+    val user: User,
     @JsonProperty("permissions")
     val permissions: Permissions?,
     @JsonProperty("private")
@@ -163,7 +163,7 @@ data class GithubRepository(
     @JsonProperty("temp_clone_token")
     val tempCloneToken: String?,
     @JsonProperty("template_repository")
-    val templateRepository: Any?,
+    val templateRepository: Repo?,
     @JsonProperty("topics")
     val topics: List<String>?,
     @JsonProperty("trees_url")

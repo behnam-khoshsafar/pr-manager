@@ -31,6 +31,7 @@ class GithubClientInterceptor(val oauth2AuthorizedClientService: OAuth2Authorize
 
         if (!authentication.isAuthenticated)
             throw AuthenticationFailedException("Authentication Failed")
+
         val client: OAuth2AuthorizedClient = oauth2AuthorizedClientService.loadAuthorizedClient(
             authentication.authorizedClientRegistrationId,
             authentication.name

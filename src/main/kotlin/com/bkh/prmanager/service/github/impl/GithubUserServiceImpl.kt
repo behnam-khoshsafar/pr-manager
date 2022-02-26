@@ -2,17 +2,17 @@ package com.bkh.prmanager.service.github.impl
 
 import com.bkh.prmanager.client.github.GithubClient
 import com.bkh.prmanager.exception.GithubClientException
-import com.bkh.prmanager.model.GithubRepository
-import com.bkh.prmanager.service.github.GithubService
+import com.bkh.prmanager.model.Repo
+import com.bkh.prmanager.service.github.GithubUserService
 import lombok.extern.slf4j.Slf4j
 import org.springframework.stereotype.Service
 
 
 @Service
 @Slf4j
-class GithubServiceImpl(val githubClient: GithubClient) : GithubService {
+class GithubUserServiceImpl(val githubClient: GithubClient) : GithubUserService {
 
-    override fun getUserRepositories(): List<GithubRepository> {
+    override fun getUserRepositories(): List<Repo> {
         val repos = githubClient.getRepos()
         val response = repos.execute()
 
