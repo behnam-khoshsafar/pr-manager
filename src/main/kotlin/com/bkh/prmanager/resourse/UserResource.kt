@@ -12,7 +12,8 @@ class UserResource {
 
     @GetMapping("/user")
     fun getUser(@AuthenticationPrincipal user: OAuth2User): Map<String, String> {
-        return mapOf("name" to user.name)
+        val userName = user.getAttribute("login") ?: "";
+        return mapOf("name" to userName)
     }
 
     @GetMapping("/error")

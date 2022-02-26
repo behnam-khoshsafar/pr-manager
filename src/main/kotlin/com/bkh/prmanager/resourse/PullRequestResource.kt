@@ -2,7 +2,6 @@ package com.bkh.prmanager.resourse
 
 import com.bkh.prmanager.model.PullRequest
 import com.bkh.prmanager.service.PullRequestService
-import org.springframework.http.MediaType
 import org.springframework.http.MediaType.APPLICATION_JSON_VALUE
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping

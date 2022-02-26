@@ -17,7 +17,7 @@ class WebSecurityConfig : WebSecurityConfigurerAdapter() {
         http
             .authorizeRequests {
                 it
-                    .antMatchers("/", "/error").permitAll()
+                    .antMatchers("/", "/error", "/css/**", "/js/**").permitAll()
                     .anyRequest().authenticated()
             }
             .exceptionHandling {

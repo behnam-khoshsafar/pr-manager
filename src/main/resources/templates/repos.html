@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Repos</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+</head>
+<body>
+<div>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <td>ID</td>
+            <td>name</td>
+            <td>owner</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="repo : ${repos}">
+            <td th:text="${repo.id}">1</td>
+            <td><a href="view.html" th:href="@{'/repos/' + ${repo.owner}+'/'+${repo.name}+'/pulls'}" th:text="${repo.name}">Title
+                ...</a></td>
+            <td th:text="${repo.owner}">Text ...</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
