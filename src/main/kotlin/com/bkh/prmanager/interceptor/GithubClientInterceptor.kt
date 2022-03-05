@@ -25,13 +25,23 @@ class GithubClientInterceptor(val oauth2AuthorizedClientService: OAuth2Authorize
     }
 
     private fun oAuth2AccessToken(): String {
-        val authentication: OAuth2AuthenticationToken = SecurityContextHolder
+        val authentication: OAuth2AuthenticationToken = getOAuth2AuthenticationToken()
+        validateAuthenticate(authentication)
+        return getAccessToken(authentication)
+    }
+
+    private fun getOAuth2AuthenticationToken(): OAuth2AuthenticationToken {
+        return SecurityContextHolder
             .getContext()
             .authentication as OAuth2AuthenticationToken
+    }
 
+    private fun validateAuthenticate(authentication: OAuth2AuthenticationToken) {
         if (!authentication.isAuthenticated)
             throw AuthenticationFailedException("Authentication Failed")
+    }
 
+    private fun getAccessToken(authentication: OAuth2AuthenticationToken): String {
         val client: OAuth2AuthorizedClient = oauth2AuthorizedClientService.loadAuthorizedClient(
             authentication.authorizedClientRegistrationId,
             authentication.name
